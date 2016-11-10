@@ -19,8 +19,9 @@
 - [Docker-compose](https://github.com/docker/compose/releases)
 
 #### Install
-```
+```bash
 git clone https://github.com/huangyanxiong01/docker-node.js.git
+cd docker-node.js
 docker-compose up -d
 ```
 
