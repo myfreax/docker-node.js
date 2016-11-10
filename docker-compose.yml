@@ -12,7 +12,6 @@ services:
     dns:
       - 176.80.80.80
       - 8.8.8.8
-    entrypoint: node
     env_file:
       - ./common.env
     working_dir: /code
