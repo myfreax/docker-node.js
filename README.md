@@ -5,6 +5,9 @@
 - Ubuntu16.04
 - Node.js 7.o lts
 - Integration docker-compose
+- Image size only 268MB
+- Than the official small
+- easy to distribute deployment
 
 ##What is the use?
 - Unified development environment
