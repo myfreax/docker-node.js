@@ -30,6 +30,6 @@ Now,you can open http://127.0.0.1:3000/ in browser
 > if Ubuntu official source is too slow,You can add command in Dockerfile
 
 ```
-FROM ubuntu:16.04
-COPY ./sources.list /etc/apt/sources.list
+FROM  ubuntu:16.04
+COPY  ./sources.list /etc/apt/sources.list
 ```
