@@ -1,8 +1,18 @@
- version: '2'
- services:
-   web:
-     build: .
-     ports:
+version: '2'
+services:
+  web:
+    container_name: node-app
+    build: .
+    image: docker-node:latest
+    ports:
       - "3000:3000"
-     volumes:
+    volumes:
       - .:/code
+    command: node  app.js
+    dns:
+      - 176.80.80.80
+      - 8.8.8.8
+    entrypoint: node
+    env_file:
+      - ./common.env
+    working_dir: /code
