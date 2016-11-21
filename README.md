@@ -1,7 +1,7 @@
-# docker-node.js
+# Docker-node.js
 > docker node.js image
 
-## feature
+## Feature
 - Ubuntu16.04
 - Node.js 7.x lts
 - Integration docker-compose
