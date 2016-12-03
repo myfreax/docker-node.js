@@ -1,20 +1,15 @@
 # Docker-node.js
 
-> 不只是镜像，这是基于Docker的集成开发环境
+> Based on the docker to build the development environment 
 
-## TODO
+- [ ] Nginx
+- [ ] Nodemon
 
-- [ ] Koa2应用测试
-
-## Feature
-
-- Ubuntu16.04
-
-- Node.js 7.x lts
-
-- Integrate docker-compose- Image size only 268MB
-
-- Than the official small- easy to distribute deployment
+## Software
+- MongoDB
+- Redis
+- MySQL
+- Node.js 7.x
 
 ## How to use it?
 
@@ -57,5 +52,3 @@ docker pull huangyanxiong2012/docker-node.js
 FROM ubuntu:16.04COPY ./sources.list /etc/apt/sources.list
 
 ```
-
-
