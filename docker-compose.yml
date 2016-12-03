@@ -1,43 +1,38 @@
 version: '2'
 services:
   web:
-    container_name: node-app
+    container_name: node.js
     image: node
+    env_file:
+      - ./docker/node.js/node.env
+      - ./docker/mysql/mysql.env
+      - ./docker/.env
+    command: node --harmony --debug  app.js
     ports:
       - "3000:3000"
       - "5858:5858"
     volumes:
       - .:/code
-    command: node --harmony --debug  app.js
-    dns:
-      - 176.80.80.80
-      - 8.8.8.8
-    env_file:
-      - ./node.env
     working_dir: /code
-    links:
-     - db
-     - redis
-     - mongo
     depends_on:
-     - redis
-     - db
-     - mongo
-  redis:
-    image: redis
-    env_file:
-      - ./redis.env
-    volumes:
-      - .data/redis/data:/data
-    command: redis-server --requirepass node-app
-  db:
+      - mysql
+      - mongo
+      - redis
+  mysql:
+    container_name: ${DB_HOST}
     image: mysql
     env_file:
-     - ./mysql.env
+      - ./docker/mysql/mysql.env
     volumes:
-     - .data/mysql/data/:/var/lib/mysql
-     - .data/mysql/etc:/etc/mysql/conf.d
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/etc:/etc/mysql/conf.d
+  redis:
+    image: redis
+    container_name: ${REDIS_HOST}
+    volumes:
+      - ./docker/redis/data:/data
   mongo:
-   image: mongo
-   volumes:
-     - .data/mongo/data:/data/db
+    image: mongo
+    container_name: ${MONGO_HOST}
+    volumes:
+      - ./docker/mongo/data:/data/db
