@@ -1,69 +1,81 @@
 const Koa = require('koa');
-// Koa application is now a class and requires the new operator.
 const app = new Koa();
+const mysql = require('mysql');
+const redis = require('redis');
+const Db = require('mongodb').Db;
+const Server = require('mongodb').Server;
+const PORT = 3000;
 
-/**
- * Created by huangyanxiong on 16-12-1.
- */
-//加载Mongoose模块
-const mongoose = require('mongoose');
-
-//数据库连接地址
-const dbURI = 'mongodb://127.0.0.1/my_database';
-
-
-//创建数据库连接
-mongoose.connect(dbURI);
-
-// CONNECTION EVENTS
-//监听连接事件
-
-// 当连接成功时
-mongoose.connection.on('connected', function () {
-    console.log('Mongoose default connection open to ' + dbURI);
+/*-------------------------mysql----------------------------------------*/
+const mysqlClient = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE
 });
-
-// 如果连接失败
-mongoose.connection.on('error', function (err) {
-    console.log('Mongoose default connection error: ' + err);
-});
-
-// 当连接断开时
-mongoose.connection.on('disconnected', function () {
-    console.log('Mongoose default connection disconnected');
-});
-
-// 如果node进程结束，关闭连接
-process.on('SIGINT', function () {
-    mongoose.connection.close(function () {
-        console.log('Mongoose default connection disconnected through app termination');
-        process.exit(0);
+mysqlClient.connect();
+async function getMysqlVersion() {
+    let result = await new Promise((resolve, reject) => {
+        mysqlClient.query('select version() as version', function (err, rows, fields) {
+            if (err) return reject(err);
+            resolve(rows);
+        });
+    }).catch((err) => {
+        throw new Error(err);
     });
+    return result;
+}
+
+/*-------------------------mongodb---------------------------------------*/
+async function getMongoVersion() {
+    const db = new Db('test', new Server(process.env.MONGO_HOST, 27017));
+    let mongoClient = await new Promise((resolve, reject) => {
+        db.open((err, db) => {
+            if (err)return reject(err);
+            resolve(db);
+        });
+    }).catch((err) => {
+        throw new Error(err);
+    });
+
+    const adminDb = mongoClient.admin();
+    let info = await new Promise((resolve, reject) => {
+        adminDb.buildInfo(function (err, info) {
+            if (err)return reject(err);
+            resolve(info);
+        });
+    }).catch((err) => {
+        throw new Error(err);
+    });
+    return info;
+}
+/*---------------------redis---------------------------------------------*/
+const redisClient = redis.createClient('6379', process.env.REDIS_HOST);
+
+redisClient.on("error", (err) => {
+    throw new Error(err);
 });
 
-
-
-// uses async arrow functions
-app.use(async (ctx, next) => {
+/*-------------------------koa2----------------------------------------*/
+app.use(async(ctx) => {
     try {
-        await next(); // next is now a function
-        console.info(ctx);
-    } catch (err) {
-        ctx.body = { message: err.message };
-        ctx.status = err.status || 500;
+        let mysqlVersion = await getMysqlVersion();
+        let redisVersion = redisClient.server_info.redis_version;
+        let mongoVersion = await  getMongoVersion();
+
+        ctx.body = `
+        <h1>Dcoker+Koa2+MongoDB+Redis+MySQL</h1>
+        <h4>Integrate development environment</h4>
+        MySQL Version: ${mysqlVersion[0].version}<br />
+        MongoDB Version: ${mongoVersion.version}<br />
+        Redis Version: ${redisVersion}
+    `;
+    } catch (e) {
+        ctx.status = 500;
+        ctx.body = e.stack;
     }
 });
 
-app.use(async ctx => {
-    /// const user = await User.getById(ctx.session.userid); // await instead of yield
-
-    ctx.body = 'body'; // ctx instead of this
-});
-
-app.listen(3000,function (err) {
-    if (err){
-      return err;
-    }
-
-    console.log('http://127.0.0.1:3000');
+app.listen(3000, () => {
+    console.info(`open http://127.0.0.1:${PORT}`);
 });
