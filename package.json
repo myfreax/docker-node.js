@@ -13,6 +13,7 @@
     "koa": "2",
     "mongoose": "^4.7.1",
     "node-mysql": "^0.4.2",
-    "redis": "^2.6.3"
+    "redis": "^2.6.3",
+    "sequelize": "^3.27.0"
   }
 }
