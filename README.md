@@ -6,7 +6,7 @@
 - [ ] Nginx
 - [ ] Nodemon
 
-## Software
+## Software Stack
 - MongoDB
 - Redis
 - MySQL
@@ -29,6 +29,8 @@ git clone https://github.com/huangyanxiong01/docker-node.js.git
 cd docker-node.js
 
 docker-compose up -d
+
+yarn install
 
 ```
 
