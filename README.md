@@ -37,7 +37,7 @@ docker-compose up -d
 
 Now,you can open http://127.0.0.1:3000/ in browser
 
-## Changelog
+## Change Log
 [Changelog.md](changelog.md)
 
 ## Pull image
