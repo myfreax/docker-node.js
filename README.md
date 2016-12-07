@@ -5,6 +5,7 @@
 ## TODO
 - [ ] Nginx
 - [ ] Nodemon
+- [ ] Test on Windows
 
 ## Software Stack
 - MongoDB
