@@ -57,6 +57,7 @@ docker pull huangyanxiong2012/docker-node.js
 
 ```
 
-FROM ubuntu:16.04COPY ./sources.list /etc/apt/sources.list
+FROM ubuntu:16.04
+COPY ./sources.list /etc/apt/sources.list
 
 ```
