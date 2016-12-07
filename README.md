@@ -36,6 +36,9 @@ docker-compose up -d
 
 Now,you can open http://127.0.0.1:3000/ in browser
 
+## Changelog
+[Changelog.md](changelog.md)
+
 ## Pull image
 
 ```
@@ -43,6 +46,7 @@ Now,you can open http://127.0.0.1:3000/ in browser
 docker pull huangyanxiong2012/docker-node.js
 
 ```
+
 
 >If live behind the GFW please read this post [Use Ali cloud](http://www.myfreax.com/use-aliyun-mirror-acceleration-on-docker/)
 
