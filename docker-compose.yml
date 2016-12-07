@@ -1,12 +1,11 @@
 version: '2'
 services:
   web:
-    container_name: node.js
     image: node
     env_file:
       - ./docker/node.js/node.env
       - ./docker/mysql/mysql.env
-      - ./docker/.env
+      - ./.env
     command: node --harmony --debug  app.js
     ports:
       - "3000:3000"
