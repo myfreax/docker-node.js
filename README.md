@@ -50,7 +50,7 @@ You can find the  $software data file in `./docker/$software/Data/`
 - [ ] Optimize the configuration file
 - [ ] Test on Windows
 
-##### Why do I need a Lua module?
+##### Why do need Lua module?
 
 > The nginx configuration file uses environment variables
 
@@ -63,7 +63,7 @@ You can find the  $software data file in `./docker/$software/Data/`
 
 
 
-## Pull image
+## Other
 
 ```
 
