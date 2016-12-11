@@ -1,14 +1,30 @@
 version: '2'
 services:
-  web:
+  nginx:
+    image: nginx
+    hostname: nginx
+    container_name: nginx
+    ports:
+      - "${NGINX_PORT}:80"
+    env_file:
+      - ./docker/nginx/nginx.env
+      - ./.env
+    volumes:
+      - ./docker/nginx/etc/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/etc/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - node
+  node:
     image: node
+    hostname: ${NODE_HOST}
+    container_name: ${NODE_HOST}
     env_file:
       - ./docker/node.js/node.env
       - ./docker/mysql/mysql.env
       - ./.env
-    command: node --harmony --debug  app.js
+    command: node --harmony docker/bin/index.js
     ports:
-      - "3000:3000"
+      - "${APP_PORT}:${APP_PORT}"
       - "5858:5858"
     volumes:
       - .:/code
@@ -18,8 +34,9 @@ services:
       - mongo
       - redis
   mysql:
-    container_name: ${DB_HOST}
     image: mysql
+    hostname: ${DB_HOST}
+    container_name: ${DB_HOST}
     env_file:
       - ./docker/mysql/mysql.env
     volumes:
@@ -27,11 +44,14 @@ services:
       - ./docker/mysql/etc:/etc/mysql/conf.d
   redis:
     image: redis
+    hostname: ${REDIS_HOST}
     container_name: ${REDIS_HOST}
     volumes:
-      - ./docker/redis/data:/data
+      - ./docker/redis/data:/dataz
   mongo:
     image: mongo
+    hostname: ${MONGO_HOST}
     container_name: ${MONGO_HOST}
     volumes:
       - ./docker/mongo/data:/data/db
+      - ./docker/mongo/etc/mongod.conf.orig:/etc/mongod.conf.orig
