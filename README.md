@@ -1,17 +1,15 @@
 # Docker-node.js
 
-> Based on the docker to build the development environment
+> A development environment built using Docker
  
-## TODO
-- [ ] Nginx
-- [ ] Nodemon
-- [ ] Test on Windows
-
 ## Software Stack
-- MongoDB
-- Redis
-- MySQL
-- Node.js 7.x
+- [x] MongoDB
+- [x] Redis
+- [x] MySQL
+- [x] Node.js 7.x
+- [x] Nginx
+
+
 
 ## How to use it?
 
@@ -21,7 +19,7 @@
 
 - [Docker-compose](https://github.com/docker/compose/releases)
 
-#### Install
+#### Setup
 
 ```bash
 
@@ -37,8 +35,33 @@ docker-compose up -d
 
 Now,you can open http://127.0.0.1:3000/ in browser
 
+#### Configure 
+
+You can find the custom $software configuration file in `./docker/$software/etc/`
+
+
+#### Data
+
+You can find the  $software data file in `./docker/$software/Data/`
+
+## TODO
+
+- [ ] Build the nginx image with the lua module
+- [ ] Optimize the configuration file
+- [ ] Test on Windows
+
+##### Why do I need a Lua module?
+
+> The nginx configuration file uses environment variables
+
+
+
+
+
 ## Change Log
 [Changelog.md](changelog.md)
+
+
 
 ## Pull image
 
