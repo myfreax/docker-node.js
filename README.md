@@ -1,14 +1,6 @@
 # Docker-node.js
 
-<p align="center">
-  <a href="http://gulpjs.com">
-    <img height="200" width="200" src="./images/docker.png">
-  </a>
-  <a href="http://gulpjs.com">
-      <img height="200" width="200" src="./images/nodejs.jpg">
-    </a>
-  <p align="center">Dcoker + Node.js</p>
-</p>
+![nodejsanddocker](./images/nodejsanddocker.jpeg)
  
 ## Software Stack
 - [x] MongoDB
