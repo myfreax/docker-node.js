@@ -13,6 +13,9 @@
 
 ## How to use it?
 
+>If live behind the [GFW](https://zh.wikipedia.org/zh-hans/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E) please read this post [Use Ali cloud](http://www.myfreax.com/use-aliyun-mirror-acceleration-on-docker/)
+
+
 #### Requirements
 
 - [Docker](https://www.docker.com/)
@@ -72,7 +75,6 @@ docker pull huangyanxiong2012/docker-node.js
 ```
 
 
->If live behind the GFW please read this post [Use Ali cloud](http://www.myfreax.com/use-aliyun-mirror-acceleration-on-docker/)
 
 ## Note
 
