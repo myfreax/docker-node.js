@@ -4,7 +4,6 @@ const mysql = require('mysql');
 const redis = require('redis');
 const Db = require('mongodb').Db;
 const Server = require('mongodb').Server;
-const PORT = 3000;
 
 /*-------------------------mysql----------------------------------------*/
 const mysqlClient = mysql.createConnection({
@@ -25,6 +24,8 @@ async function getMysqlVersion() {
     });
     return result;
 }
+
+
 
 /*-------------------------mongodb---------------------------------------*/
 async function getMongoVersion() {
@@ -76,6 +77,6 @@ app.use(async(ctx) => {
     }
 });
 
-app.listen(3000, () => {
-    console.info(`open http://127.0.0.1:${PORT}`);
+app.listen(process.env.APP_PORT, () => {
+    console.info(`open http://127.0.0.1:${process.env.NGINX_PORT}`);
 });
