@@ -1,6 +1,14 @@
 # Docker-node.js
 
-> A development environment built using Docker
+<p align="center">
+  <a href="http://gulpjs.com">
+    <img height="200" width="200" src="./images/docker.png">
+  </a>
+  <a href="http://gulpjs.com">
+      <img height="200" width="200" src="./images/nodejs.jpg">
+    </a>
+  <p align="center">Dcoker + Node.js</p>
+</p>
  
 ## Software Stack
 - [x] MongoDB
