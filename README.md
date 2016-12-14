@@ -51,12 +51,15 @@ You can find the  $software data file in `./docker/$software/Data/`
 
 - [ ] Build the nginx image with the lua module
 - [ ] Optimize the configuration file
+- [ ] Write usage documentation
 - [ ] Test on Windows
 
 ##### Why do need Lua module?
 
 > The nginx configuration file uses environment variables
 
+## Goal
+Build a reusable environment, whether it is a production environment or a development environment
 
 
 
