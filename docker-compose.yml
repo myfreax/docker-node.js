@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: nginx
+    image: openresty/openresty
     hostname: nginx
     container_name: nginx
     ports:
@@ -10,8 +10,9 @@ services:
       - ./docker/nginx/nginx.env
       - ./.env
     volumes:
-      - ./docker/nginx/etc/nginx.conf:/etc/nginx/nginx.conf
-      - ./docker/nginx/etc/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/logs/:/usr/local/openresty/nginx/logs
+      - ./docker/nginx/etc/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./docker/nginx/etc/conf.d:/usr/local/openresty/nginx/conf/conf.d
     depends_on:
       - node
   node:
