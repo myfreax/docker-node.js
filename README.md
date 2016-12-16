@@ -7,7 +7,7 @@
 - [x] Redis
 - [x] MySQL
 - [x] Node.js 7.x
-- [x] Nginx
+- [x] Nginx(Power By Openresty)
 
 
 
@@ -65,7 +65,7 @@ Build a reusable environment, whether it is a production environment or a develo
 
 
 ## Change Log
-[Changelog.md](changelog.md)
+[ChangeLog.md](ChangeLog.md)
 
 
 
