@@ -14,7 +14,8 @@
 - [x] Redis
 - [x] MySQL
 - [x] Node.js 7.x
-- [x] Nginx(Power By Openresty)
+- [x] Nginx with LuaJit
+- [x] Nodemon
 
 
 ## How to use it?
@@ -30,7 +31,7 @@
 
 >Windows and Mac users only need to install Docker
 
-#### Setup
+#### Getting started
 
 ```bash
 
@@ -41,10 +42,16 @@ cd docker-node.js
 yarn install
 
 docker-compose up -d
-
 ```
-
 Now,you can open http://127.0.0.1:3000/ in browser
+
+###### Try edit the app.js
+
+```js
+ctx.body = `Hello World`;  //in koa2 middleware
+```
+>The Node.js will automatically restart,Through the module provided by the [nodemon](https://github.com/remy/nodemon) implementation
+
 
 #### Configure 
 
@@ -61,10 +68,6 @@ You can find the  $software data file in `./docker/$software/Data/`
 - [ ] Optimize the configuration file
 - [ ] Write usage documentation
 - [ ] Test on Windows
-
-##### Why do need Lua module?
-
-> The nginx configuration file uses environment variables
 
 ## Goal
 Build a reusable environment, whether it is a production environment or a development environment
