@@ -2,7 +2,10 @@
 
 ## 2016-12-16
 
-- Nginx(Power by Openresty)
+- Nginx(Power by Openresty)  
+
+> Lua module provided by the openresty, nginx configuration file can now use the environment variable
+
 - map nginx logs to host
 
 ## 2016-12-14
