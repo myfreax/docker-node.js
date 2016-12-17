@@ -23,7 +23,7 @@ services:
       - ./docker/node.js/node.env
       - ./docker/mysql/mysql.env
       - ./.env
-    command: node --harmony docker/bin/index.js
+    command: node --harmony docker/nodemon/index.js
     ports:
       - "${APP_PORT}:${APP_PORT}"
       - "5858:5858"
