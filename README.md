@@ -1,6 +1,13 @@
 # Docker-node.js
 
 ![nodejsanddocker](./images/nodejsanddocker.jpeg)
+
+## Features
+
+- Automatically restarts the Node.js process
+- Customize the configuration file
+- Data is stored in the host
+
  
 ## Software Stack
 - [x] MongoDB
@@ -8,7 +15,6 @@
 - [x] MySQL
 - [x] Node.js 7.x
 - [x] Nginx(Power By Openresty)
-
 
 
 ## How to use it?
@@ -21,6 +27,8 @@
 - [Docker](https://www.docker.com/)
 
 - [Docker-compose](https://github.com/docker/compose/releases)
+
+>Windows and Mac users only need to install Docker
 
 #### Setup
 
@@ -49,7 +57,7 @@ You can find the  $software data file in `./docker/$software/Data/`
 
 ## TODO
 
-- [ ] Build the nginx image with the lua module
+- [x] Build the nginx image with the lua module
 - [ ] Optimize the configuration file
 - [ ] Write usage documentation
 - [ ] Test on Windows
