@@ -2,6 +2,10 @@
 
 ## 2016-12-16
 
+ - add redis.conf
+  
+## 2016-12-16
+
 - Nginx(Power by Openresty)  
 
 > Lua module provided by the openresty, nginx configuration file can now use the environment variable

@@ -3,7 +3,6 @@ services:
   nginx:
     image: openresty/openresty
     hostname: nginx
-    container_name: nginx
     ports:
       - "${NGINX_PORT}:80"
     env_file:
@@ -18,7 +17,6 @@ services:
   node:
     image: node
     hostname: ${NODE_HOST}
-    container_name: ${NODE_HOST}
     env_file:
       - ./docker/node.js/node.env
       - ./docker/mysql/mysql.env
@@ -37,7 +35,6 @@ services:
   mysql:
     image: mysql
     hostname: ${DB_HOST}
-    container_name: ${DB_HOST}
     env_file:
       - ./docker/mysql/mysql.env
     volumes:
@@ -46,13 +43,13 @@ services:
   redis:
     image: redis
     hostname: ${REDIS_HOST}
-    container_name: ${REDIS_HOST}
+    command: redis-server ${REDIS_CONF}
     volumes:
-      - ./docker/redis/data:/dataz
+      - ./docker/redis/data:/data
+      - ./docker/redis/etc/redis.conf:${REDIS_CONF}
   mongo:
     image: mongo
     hostname: ${MONGO_HOST}
-    container_name: ${MONGO_HOST}
     volumes:
       - ./docker/mongo/data:/data/db
       - ./docker/mongo/etc/mongod.conf.orig:/etc/mongod.conf.orig
