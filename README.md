@@ -5,6 +5,7 @@
 ## Features
 
 - Automatically restarts the Node.js process
+- Support remote debugging
 - Customize the configuration file
 - Data is stored in the host
 
