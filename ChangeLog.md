@@ -2,6 +2,10 @@
 
 ## 2016-12-16
 
+ - map log to the host
+
+## 2016-12-16
+
  - add redis.conf
   
 ## 2016-12-16
