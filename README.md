@@ -65,13 +65,9 @@ You can find the  $software data file in `./docker/$software/Data/`
 
 ## TODO
 
-- [x] Build the nginx image with the lua module
-- [ ] Optimize the configuration file
+- [ ] Write a php script that integrates with the framework(such as Express,Koa)
 - [ ] Write usage documentation
 - [ ] Test on Windows
-
-## Goal
-Build a reusable environment, whether it is a production environment or a development environment
 
 
 
