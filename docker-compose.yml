@@ -39,7 +39,9 @@ services:
       - ./docker/mysql/mysql.env
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/logs/:/var/log/mysql/
       - ./docker/mysql/etc:/etc/mysql/conf.d
+
   redis:
     image: redis
     hostname: ${REDIS_HOST}
@@ -47,9 +49,11 @@ services:
     volumes:
       - ./docker/redis/data:/data
       - ./docker/redis/etc/redis.conf:${REDIS_CONF}
+      - ./docker/redis/logs/:/var/log/redis/
   mongo:
     image: mongo
     hostname: ${MONGO_HOST}
     volumes:
       - ./docker/mongo/data:/data/db
       - ./docker/mongo/etc/mongod.conf.orig:/etc/mongod.conf.orig
+      - ./docker/mongo/logs/:/var/log/mongodb/
