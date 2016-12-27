@@ -65,7 +65,7 @@ You can find the  $software data file in `./docker/$software/Data/`
 
 ## TODO
 
-- [ ] Write a php script that integrates with the framework(such as Express,Koa)
+- [ ] Write a Node.js script that integrates with the framework(such as Express,Koa)
 - [ ] Write usage documentation
 - [ ] Test on Windows
 
