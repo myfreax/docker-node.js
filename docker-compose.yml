@@ -12,6 +12,9 @@ services:
       - ./docker/nginx/logs/:/usr/local/openresty/nginx/logs
       - ./docker/nginx/etc/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
       - ./docker/nginx/etc/conf.d:/usr/local/openresty/nginx/conf/conf.d
+    dns:
+      - ${BAIDUDNS}
+      - ${GOOGLEDNS}
     depends_on:
       - node
   node:
@@ -22,6 +25,9 @@ services:
       - ./docker/mysql/mysql.env
       - ./.env
     command: node --harmony docker/nodemon/index.js
+    dns:
+      - ${BAIDUDNS}
+      - ${GOOGLEDNS}
     ports:
       - "${APP_PORT}:${APP_PORT}"
       - "5858:5858"
@@ -35,6 +41,9 @@ services:
   mysql:
     image: mysql
     hostname: ${DB_HOST}
+    dns:
+      - ${BAIDUDNS}
+      - ${GOOGLEDNS}
     env_file:
       - ./docker/mysql/mysql.env
     volumes:
@@ -46,6 +55,9 @@ services:
     image: redis
     hostname: ${REDIS_HOST}
     command: redis-server ${REDIS_CONF}
+    dns:
+      - ${BAIDUDNS}
+      - ${GOOGLEDNS}
     volumes:
       - ./docker/redis/data:/data
       - ./docker/redis/etc/redis.conf:${REDIS_CONF}
@@ -53,6 +65,9 @@ services:
   mongo:
     image: mongo
     hostname: ${MONGO_HOST}
+    dns:
+      - ${BAIDUDNS}
+      - ${GOOGLEDNS}
     volumes:
       - ./docker/mongo/data:/data/db
       - ./docker/mongo/etc/mongod.conf.orig:/etc/mongod.conf.orig
