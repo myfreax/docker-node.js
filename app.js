@@ -70,6 +70,9 @@ app.use(async(ctx) => {
         MySQL Version: ${mysqlVersion[0].version}<br />
         MongoDB Version: ${mongoVersion.version}<br />
         Redis Version: ${redisVersion}
+        <div style="margin-top:20px">
+         Power by <a href="http://www.myfreax.com/" target="_blank">Freax</a> 
+        </div>
     `;
     } catch (e) {
         ctx.status = 500;
