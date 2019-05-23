@@ -4,3 +4,5 @@ docker/mongo/data/*
 docker/mysql/data/*
 docker/redis/data/*
 docker/nginx/logs/
+yarn.lock
+package-lock.json
