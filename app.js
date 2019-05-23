@@ -69,9 +69,10 @@ app.use(async(ctx) => {
         <h4>Integrate development environment</h4>
         MySQL Version: ${mysqlVersion[0].version}<br />
         MongoDB Version: ${mongoVersion.version}<br />
+        Node Version: ${process.version}<br />
         Redis Version: ${redisVersion}
         <div style="margin-top:20px">
-         Power by <a href="http://www.myfreax.com/" target="_blank">Freax</a> 
+         Power by <a href="http://www.myfreax.com/" target="_blank">huangyanxiong</a> 
         </div>
     `;
     } catch (e) {
