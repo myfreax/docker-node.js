@@ -3,3 +3,4 @@ node_modules/
 docker/mongo/data/*
 docker/mysql/data/*
 docker/redis/data/*
+docker/nginx/logs/
