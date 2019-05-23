@@ -4,7 +4,7 @@
     "node_modules/**/node_modules"
   ],
   "execMap": {
-    "js": "node --debug --harmony"
+    "js": "node --inspect --harmony"
   },
   "verbose": true,
   "TODO":"https://github.com/remy/nodemon/issues/951",
